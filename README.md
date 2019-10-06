@@ -46,4 +46,7 @@ When you're done with the change and have committed locally, you'll create an up
 
 Example: `git push origin bugFix:nbduke/bugFix`. On the main repository page in GitHub, you'll then find a link to generate a PR. For now, you can complete your own PRs - that is, we won't require an actual code review. However, since we don't have continuous integration set up yet, please make sure you have generated the production build with `npm run build` (and fixed all tslint warnings) and passed all tests with `npm run test`. Also, please use "squash commits" when completing a PR; this makes the Git history sane and orderly.
 
-If you make any changes to the installation/setup/development loop of the product, please update this readme so others will know what to do. Thank you!
+If you make any changes to the installation/setup/development loop of the product, please update this readme so others will know what to do.
+
+## Architecture
+The code is structured as a single-page web app. A browser will download `index.html`, which points to the code in `index.tsx`. This file simply instantiates the root of the application (`App.tsx`) and renders it into the browser window. We get to design whatever is underneath that root, which can be arbitrarily complex. Eventually, our codebase will contain a mix of React components, specifying UI, and normal TypeScript classes, specifying business logic and REST APIs.
