@@ -2,14 +2,18 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-export default class App extends React.Component {
+export interface IAppProps {
+  message?: string;
+}
+
+export default class App extends React.Component<IAppProps> {
   public render(): React.ReactElement {
     return (
       <div className='App'>
         <header className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
           <p>
-            I want to play a game :)
+            { this.props.message || 'DEFAULT MESSAGE' }
           </p>
           <a
             className='App-link'
